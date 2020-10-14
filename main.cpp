@@ -20,7 +20,7 @@ int main(void){
     while (1){
         cout << endl << "Welcome to the students and faculty database!" << endl;
         cout << "What would you like to do?" << endl;
-        cout << "1. View the database" << endl;
+        cout << "1. View all records" << endl;
         cout << "2. Add a record" << endl;
         cout << "3. Remove a record" << endl;
         cout << "4. Search for a record" << endl;
@@ -110,7 +110,7 @@ int removeRecord(){
         return 0;
     } else {
         cout << "oops! something went wrong, please try again" << endl;
-        return 1;
+        return -1;
     }
 }
 
