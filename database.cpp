@@ -70,7 +70,7 @@ int Database::remove(int index) {
 int Database::search(int key) const{
     cout << "----------" << endl;
     cout 
-    // << setw(5) << "#"
+    << setw(5) << "#"
     << setw(20) << "ID" 
     << setw(10) << "Age" 
     << setw(25) << "Faculty" 
@@ -81,7 +81,7 @@ int Database::search(int key) const{
     int count = 0;
     for (int i=0; i<size; i++){
         if(data[i]->id == key){
-            // cout << setw(5) << i;
+            cout << setw(5) << i;
             data[i]->print();
             count++;
         }
