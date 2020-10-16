@@ -11,33 +11,30 @@ using std::string;
 using std::vector;
 using std::setw;
 
+void printHeader();
+
 void Student::print() const {
-    cout << setw(20) << id 
-    << setw(10) << age 
-    << setw(25) << faculty 
+    cout << setw(10) << "Student"
+    << setw(20) << id 
+    << setw(15) << fName
+    << setw(15) << lName
     << setw(10) << gpa 
-    << setw(15) << "N/A" 
+    << setw(15) << "-" 
     << endl;
 }
 
 void Teacher::print() const {
-    cout << setw(20) << id 
-    << setw(10) << age 
-    << setw(25) << faculty 
-    << setw(10) << "N/A" 
+    cout << setw(10) << "Teacher"
+    << setw(20) << id 
+    << setw(15) << fName
+    << setw(15) << lName 
+    << setw(10) << "-" 
     << setw(15) << salary 
     << endl;
 }
 
 void Database::print() const{
-    cout << "----------" << endl;
-    cout << setw(5) << "#"
-    << setw(20) << "ID" 
-    << setw(10) << "Age" 
-    << setw(25) << "Faculty" 
-    << setw(10) << "GPA" 
-    << setw(15) << "Salary" 
-    << endl;
+    printHeader();
     
     for(int i=0; i<size; i++){
         cout << setw(5) << i;
@@ -67,20 +64,12 @@ int Database::remove(int index) {
     return 0;
 }
 
-int Database::search(int key) const{
-    cout << "----------" << endl;
-    cout 
-    << setw(5) << "#"
-    << setw(20) << "ID" 
-    << setw(10) << "Age" 
-    << setw(25) << "Faculty" 
-    << setw(10) << "GPA" 
-    << setw(15) << "Salary" 
-    << endl;
+int Database::search(string key) const{
+    printHeader();
 
     int count = 0;
     for (int i=0; i<size; i++){
-        if(data[i]->id == key){
+        if(data[i]->lName == key){
             cout << setw(5) << i;
             data[i]->print();
             count++;
@@ -98,4 +87,16 @@ Database::~Database(){
         delete b;
     }
     data.clear();
+}
+
+void printHeader(){
+    cout << "----------" << endl;
+    cout << setw(5) << "#"
+    << setw(10) << "Type"
+    << setw(20) << "ID" 
+    << setw(15) << "First Name" 
+    << setw(15) << "Last Name" 
+    << setw(10) << "GPA" 
+    << setw(15) << "Salary" 
+    << endl;
 }

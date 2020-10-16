@@ -13,19 +13,19 @@ private:
     
 public:
     int id;
-    int age;
-    string faculty;
+    string fName;
+    string lName;
 
     Person(){
         id = 0;
-        age = 0;
-        faculty = "";
+        fName = "";
+        lName = "";
     }
 
-    Person(int id, int age, string faculty)
+    Person(int id, string fName, string lName)
     : id(id),
-    age(age),
-    faculty(faculty)
+    fName(fName),
+    lName(lName)
     {
 
     }
@@ -44,8 +44,8 @@ public:
         gpa = 0;
     }
 
-    Student(int id, int age, string faculty, float gpa)
-    : Person(id, age, faculty),
+    Student(int id, string fName, string lName, float gpa)
+    : Person(id, fName, lName),
     gpa(gpa)
     {
 
@@ -65,8 +65,8 @@ public:
         salary = 0;
     }
 
-    Teacher(int id, int age, string faculty, int salary)
-    : Person(id, age, faculty),
+    Teacher(int id, string fName, string lName, int salary)
+    : Person(id, fName, lName),
     salary(salary)
     {
 
@@ -91,5 +91,5 @@ public:
     void print() const;
     int insert(Person* p);
     int remove(int index);
-    int search(int key) const;
+    int search(string key) const;
 };
