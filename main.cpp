@@ -146,8 +146,8 @@ int backOption(){
     int option = 0;
     cin >> option;
     while (option != 1 && option != 2){
-            cout << "Invalid option, input again:" << endl;
-            cin >> option;
+        cout << "Invalid option, input again:" << endl;
+        cin >> option;
     }
     if (option == 2){
         return 1;
