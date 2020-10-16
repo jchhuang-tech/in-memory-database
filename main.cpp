@@ -24,6 +24,8 @@ int main(void){
     db.insert(r3);
     Teacher* r4 = new Teacher(89695, "Emmett", "Brown", 80000);
     db.insert(r4);
+    Student* r5 = new Student(587968089, "Charlie", "Brown", 3.2);
+    db.insert(r5);
 
 
     int option = 0;
