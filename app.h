@@ -24,7 +24,7 @@ private:
 
 public:
     App(){
-        // Database();
+
     }
     ~App(){};
     void init();

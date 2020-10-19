@@ -32,8 +32,10 @@ int Database::getSize() const {
 
 int Database::insert(Person* p) {
     data.push_back(p);
+    if(data.size() <= (size_t)size){
+        return -1;
+    }
     size++;
-
     return 0;
 }
 
