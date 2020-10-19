@@ -111,13 +111,13 @@ int App::addRecord(){
 
 int App::removeRecord(){
     int index;
-    cout << "input the index# of the person to be removed (0-" << db.getSize()-1 << "): ";
+    cout << "Input the index# of the person to be removed (0-" << db.getSize()-1 << "): ";
     cin >> index;
     if (db.remove(index) == 0){
-        cout << "removed successfully" << endl;
+        cout << "Removed successfully" << endl;
         return 0;
     } else {
-        cout << "oops! something went wrong, please try again" << endl;
+        cout << "Oops! something went wrong, please try again" << endl;
         return -1;
     }
 }

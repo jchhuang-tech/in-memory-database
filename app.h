@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "database.h"
+// #include "database.h"
 #include "person.h"
 
 using std::cout;
@@ -16,6 +16,12 @@ class App {
 private: 
     Database db;
 
+    void viewAll() const;
+    int addRecord();
+    int removeRecord();
+    int searchRecord() const;
+    int backOption() const;
+
 public:
     App(){
         // Database();
@@ -23,9 +29,4 @@ public:
     ~App(){};
     void init();
     void menu();
-    void viewAll() const;
-    int addRecord();
-    int removeRecord();
-    int searchRecord() const;
-    int backOption() const;
 };
