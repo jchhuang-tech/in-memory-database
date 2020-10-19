@@ -40,11 +40,11 @@ void App::menu(){
         cout << "3. Remove a record" << endl;
         cout << "4. Search for a record" << endl;
         cout << "5. Exit" << endl;
-        cout << "Please type a number:" << endl;
+        cout << "Please enter a number: ";
 
         option = input<int>();
         while (option < 1 || option > 5){
-            cout << "Invalid input, enter again:" << endl;
+            cout << "Invalid input, enter again:";
             option = input<int>();
         }
 
@@ -72,9 +72,10 @@ void App::menu(){
 }
 
 int App::addRecord(){
-    cout << "Choose the type of record you want to add: " << endl;
+    cout << "\nChoose the type of record you want to add: " << endl;
     cout << "1. Student" << endl;
     cout << "2. Teacher" << endl;
+    cout << "Please enter a number: ";
     int type;
     type = input<int>();
     while (type != 1 && type != 2){
@@ -116,8 +117,12 @@ int App::addRecord(){
 
 int App::removeRecord(){
     int index;
-    cout << "Input the index# of the person to be removed (0-" << db.getSize()-1 << "): ";
+    cout << "\nInput the index# of the person to be removed (0-" << db.getSize()-1 << "): ";
     index = input<int>();
+    if(index >= db.getSize() || index < 0){
+        cout << "Invalid input, enter again: ";
+        index = input<int>();
+    }
     if (db.remove(index) == 0){
         cout << "Removed successfully" << endl;
         return 0;
@@ -128,16 +133,21 @@ int App::removeRecord(){
 }
 
 int App::searchRecord() const{
-    // cout << "1. ID" << endl;
-    // cout << "2. First Name" << endl;
-    // cout << "3. Last Name" << endl;
-    // cout << "Search by: " << endl;
-    // int option;
-    // cin >> option;
-    string lName;
-    cout << "Search by last name: " << endl;
-    cin >> lName;
-    db.search(lName);
+    cout << "\nChoose which to search by: " << endl;
+    cout << "1. ID" << endl;
+    cout << "2. First Name" << endl;
+    cout << "3. Last Name" << endl;
+    cout << "Please enter a number: ";
+    int option;
+    option = input<int>();
+    while (option < 1 || option > 2){
+        cout << "Invalid input, enter again: ";
+        option = input<int>();
+    }
+    string key;
+    cout << "Enter the key: ";
+    key = input<string>();
+    db.search(option, key);
     return 0;
 }
 
@@ -146,10 +156,11 @@ int App::backOption() const{
     cout << "Go back to the menu?" << endl;
     cout << "1. Menu" << endl;
     cout << "2. Exit" << endl;
+    cout << "Please enter a number: ";
     int option;
     option = input<int>();
     while (option != 1 && option != 2){
-        cout << "Invalid input, enter again:" << endl;
+        cout << "Invalid input, enter again: ";
         option = input<int>();
     }
     if (option == 2){
@@ -165,7 +176,7 @@ T input(){
     while (!(cin >> input)) {
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        cout << "Invalid input, enter again:\n";
+        cout << "Invalid input, enter again: ";
     }
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // to make the function only read one word and discard the rest of the input
     return input;

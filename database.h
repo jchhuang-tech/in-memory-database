@@ -27,5 +27,5 @@ public:
     void print() const;
     int insert(Person* p);
     int remove(int index);
-    int search(string key) const;
+    int search(int option, string key) const;
 };

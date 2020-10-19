@@ -48,16 +48,37 @@ int Database::remove(int index) {
     return 0;
 }
 
-int Database::search(string key) const{
+int Database::search(int option, string key) const{
     printHeader();
-
     int count = 0;
-    for (int i=0; i<size; i++){
-        if(data[i]->lName == key){
-            cout << setw(5) << i;
-            data[i]->print();
-            count++;
-        }
+    switch(option){
+        case 1:
+            for (int i=0; i<size; i++){
+                if(std::to_string(data[i]->id) == key){
+                    cout << setw(5) << i;
+                    data[i]->print();
+                    count++;
+                }
+            }
+            break;
+        case 2:
+            for (int i=0; i<size; i++){
+                if(data[i]->fName == key){
+                    cout << setw(5) << i;
+                    data[i]->print();
+                    count++;
+                }
+            }
+            break;
+        case 3:
+            for (int i=0; i<size; i++){
+                if(data[i]->lName == key){
+                    cout << setw(5) << i;
+                    data[i]->print();
+                    count++;
+                }
+            }
+            break;
     }
 
     cout << "----------" << endl;
