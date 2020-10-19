@@ -44,7 +44,7 @@ void App::menu(){
 
         option = input<int>();
         while (option < 1 || option > 5){
-            cout << "Invalid input, enter again:";
+            cout << "Invalid input, enter again: ";
             option = input<int>();
         }
 
@@ -79,7 +79,7 @@ int App::addRecord(){
     int type;
     type = input<int>();
     while (type != 1 && type != 2){
-        cout << "Invalid input, enter again:" << endl;
+        cout << "Invalid input, enter again: ";
         type = input<int>();
     }
 
